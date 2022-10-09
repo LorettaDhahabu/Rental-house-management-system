@@ -12,7 +12,7 @@ class HousesController < ApplicationController
   #  GET /houses/:id
   def show
     house = House.find(params[:id])
-    render json: house
+    render json: house, status: :ok
   end
 
   # PATCH /houses/:id

@@ -37,7 +37,7 @@ Landlord.all.each do |landlord|
 
     Tenant.create!(landlord_id: landlord.id, apartment_id: apartment.id, name: Faker::Name.name, age: rand(18..100), gender: [:Male, :Female].sample, contact: Faker::PhoneNumber)
 
-    House.create!(apartment_id: apartment.id,clear house_no: Faker::Number)
+    House.create!(apartment_id: apartment.id,  house_no: Faker::Number)
   end
 end
 

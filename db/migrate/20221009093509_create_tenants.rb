@@ -7,6 +7,7 @@ class CreateTenants < ActiveRecord::Migration[6.1]
       t.integer :contact
       t.integer :landlord_id
       t.integer :apartment_id
+      # t.integer :house_id
 
       t.timestamps
     end
