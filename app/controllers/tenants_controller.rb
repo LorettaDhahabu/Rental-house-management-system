@@ -27,7 +27,7 @@ class TenantsController < ApplicationController
   private
 
   def tenant_params
-    params.permit(:id, :name, :age, :gender, :contact, :landlord_id, apartment_id)
+    params.permit(:id, :name, :age, :gender, :contact, :landlord_id, :apartment_id)
   end
 
   def unprocessable_entity(invalid)

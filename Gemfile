@@ -12,6 +12,10 @@ gem 'puma', '~> 5.0'
 
 # Faker gem
 gem 'faker'
+
+# gem 'active_model_serializers'
+gem 'active_model_serializers'
+
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

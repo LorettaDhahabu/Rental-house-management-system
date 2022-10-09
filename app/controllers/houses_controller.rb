@@ -27,7 +27,7 @@ class HousesController < ApplicationController
   private
 
   def house_params
-    params.permit(:id, :house_no, apartment_id)
+    params.permit(:id, :house_no, :apartment_id)
   end
 
   def unprocessable_entity(invalid)
