@@ -4,7 +4,8 @@ import Header from './component/Header';
 import Home from './component/Home';
 import Footer from './component/Footer';
 import SignIn from './component/SignIn';
-import HouseType from './component/Houses';
+import Houses from './component/Houses';
+import Tenants from './component/Tenants';
 
 function App() {
   return (
@@ -14,9 +15,9 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home />}></Route>
           <Route exact path="/signin" element={<SignIn />}></Route>
-          <Route path="/apartments" element={<HouseType/>}></Route>
-          {/*<Route path="/restaurants/:id" element={<Restaurant />}></Route>
-          <Route path="/restaurant_pizzas" element={<RestaurantPizzaForm />} />  */}
+          <Route path="/apartments" element={<Houses />}></Route>
+          <Route path="/apartments/:id" element={<Tenants />}></Route>
+          {/*<Route path="/restaurant_pizzas" element={<RestaurantPizzaForm />} />  */}
         </Routes>
         <Footer />
       </Router>

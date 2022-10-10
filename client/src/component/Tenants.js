@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom';
 
 function Tenants() {
-  return (
-    const [{ data: restaurant, error, status }, setRestaurant] = useState({
+    const [{ data: house, error, status }, setHouse] = useState({
     data: {},
     error: "",
     status: "pending",
@@ -11,88 +11,67 @@ function Tenants() {
 
 
   useEffect(() => {
-    fetch( `/api/restaurants/${id}` )
+    fetch( `/apartments/${id}` )
       .then( ( response ) =>
       {
       if (response.ok) {
         response.json()
-          .then( ( restaurant ) =>
+          .then( ( house ) =>
           {
-          // console.log(restaurant);
-          setRestaurant({ data: restaurant, error: "", status: "resolved" })
+          console.log(house);
+          setHouse({ data: house, error: "", status: "resolved" })
         } );
-        // console.log(restaurant);
+        // console.log(house);
       }
       else
       {
         response.json()
           .then((err) =>
-            setRestaurant({ data: "not found", error: err.error, status: "rejected" })
+            setHouse({ data: "not found", error: err.error, status: "rejected" })
           );
       }
     });
   }, [ id ] );
   
-  function handleAddNewPizza(newPizza) {
-    setRestaurant({
-      data: {
-        ...restaurant,
-        pizzas: [...restaurant.pizzas, newPizza],
-      },
-      error: null,
-      status: "resolved",
-    },[]);
-  }
-
-  
-  if (status === "pending") return <h1>Loading...</h1>;
-  if (status === "rejected") return <h1>Error: {error.error}</h1>;
+  // if (status === "pending") return <h1>Loading...</h1>;
+  // if (status === "rejected") return <h1>Error: {error.error}</h1>;
 
   return (
     <div className="restbody">
       <div className="container bg-darksalmon">
-        <div className="card restcards" key={restaurant.id}>
+        <div className="card restcards" key={house.id}>
           <img
-            src={restaurant.image}
+            src={house.image}
             className="card-img-top restimages"
-            alt={restaurant.name}
+            alt={house.name}
           />
           <div className="card-body">
-            <h5 className="card-title text-center">{restaurant.name}</h5>
-            <p className="card-text text-center">{restaurant.address}</p>
-            <div className="restaurant-details">
-
-              <Link
-                to={`/restaurant_pizzas`}
-                onClick={ () => <RestaurantPizzaForm pizzas={restaurant.pizzas} />}
-              >
-                <button className="addBtn ml-auto">Add Pizza</button>
-              </Link>
-            </div>
+            <h5 className="card-title text-center">{house.name}</h5>
+            <p className="card-text text-center">{house.price}</p>
           </div>
         </div>
-        <div className="card restcards">
-          <h3 className="text-center text-bold">Our Pizza</h3>
-          {restaurant.pizzas.map((pizza) => (
-            <div key={pizza.id}>
-              <img className="pizzaimg" src={pizza.image} />
+        {/*<div className="card restcards">
+          <h3 className="text-center text-bold">Tenants</h3>
+          {house.tenants.map((tenant) => (
+            <div key={tenant.id}>
+              <img className="tenantimg" src={tenant.image} />
               <h5>
-                Pizza-Name: <em>{pizza.name}</em>
+                tenant-Name: <em>{tenant.name}</em>
               </h5>
               <h5>Description</h5>
               <p>
-                <em className="text-center">{pizza.description}</em>
+                <em className="text-center">{tenant.description}</em>
               </p>
               <h5>Ingredients</h5>
               <p>
-                <em className="">{pizza.ingredients}</em>
+                <em className="">{tenant.ingredients}</em>
               </p>
             </div>
           ))}
-        </div>
+        </div>*/}
       </div>
     </div>
-  )
+  );
 }
 
 export default Tenants;
