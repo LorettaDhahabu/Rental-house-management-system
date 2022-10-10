@@ -21,13 +21,6 @@ ActiveRecord::Schema.define(version: 2022_10_09_104008) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "houses", force: :cascade do |t|
-    t.integer "house_no"
-    t.integer "apartment_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "landlords", force: :cascade do |t|
     t.string "name"
     t.string "username"

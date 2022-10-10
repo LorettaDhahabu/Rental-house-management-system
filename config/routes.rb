@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :tenants, only: [:index, :show, :create, :update, :destroy]
 
-  resources :houses, only: [:index, :show, :create, :update, :destroy]
+  # resources :houses, only: [:index, :show, :create, :update, :destroy]
 
   
 

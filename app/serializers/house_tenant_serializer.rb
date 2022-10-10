@@ -1,6 +1,5 @@
 class HouseTenantSerializer < ActiveModel::Serializer
-  attributes :id, :house_no, :apartment_id
+  attributes :id, :name, :image, :description, :price
 
-
-  has_many :tenants
+  has_one :tenants
 end
