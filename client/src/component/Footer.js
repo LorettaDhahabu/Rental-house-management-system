@@ -34,16 +34,16 @@ function Footer() {
             <div className="text-white text-center text-md-right">
               <ul className="list-unstyled list-block">
                 <li className="list-block-item">
-                  <i className="fab fa-facebook"></i>
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
                 </li>
                 <li className="list-block-item">
-                  <i className="fab fa-facebook"></i>
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
                 </li>
                 <li className="list-block-item">
-                  <i className="fab fa-facebook"></i>
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
                 </li>
                 <li className="list-block-item">
-                  <i className="fab fa-facebook"></i>
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
                 </li>
               </ul>
             </div>
