@@ -7,6 +7,26 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.home-form{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #9AD5E7 */
+}
+
+.signin-form{
+  height: 70%;
+  width: 50%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #9AD5E7;
+  border-radius: .8em;
+}
+
 .signin-pg{
   height: 100vh;
   background-color: #9AD5E7;
