@@ -4,7 +4,7 @@ import Header from './component/Header';
 import Home from './component/Home';
 import Footer from './component/Footer';
 import SignIn from './component/SignIn';
-import HouseType from './component/HouseType';
+import HouseType from './component/Houses';
 
 function App() {
   return (
