@@ -27,15 +27,15 @@ function Header() {
             </a>
           </li>
           <li className="nav-item active">
-            <a className="nav-link" href="/apartments">
-              <button type="button" class="btn btn-primary">
+            <a className="nav-link" href="/signin">
+              <button type="button" className="btn btn-primary">
                 Login
               </button>
             </a>
           </li>
           <li className="nav-item active">
-            <a className="nav-link" href="/tenants">
-              <button type="button" class="btn btn-primary">
+            <a className="nav-link" href="/signup">
+              <button type="button" className="btn btn-primary">
                 SignUp
               </button>
             </a>

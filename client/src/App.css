@@ -7,3 +7,23 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.signin-pg{
+  height: 100vh;
+}
+
+.login-form{
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #9AD5E7;
+}
+.login-form input{
+  width: 20em;
+  margin-top: .5em;
+  margin-bottom: 1em;
+  border: #0592CD 2px solid;
+  border-radius: .5em;
+
+}
