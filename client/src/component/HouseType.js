@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 function HouseType ()
@@ -57,6 +57,12 @@ function HouseType ()
                 </strong>
                 {housetype.price}
               </p>
+              <Link
+                to={`/apartments/${housetype.id}`}
+                onClick={() => <Restaurant key={housetype.id} />}
+              >
+                <button className="viewBtn">View More</button>
+              </Link>
               {/* <div className="restaurant-details">
                 <button
                   onClick={() => {
@@ -66,12 +72,7 @@ function HouseType ()
                 >
                   DELETE
                 </button>
-                {/* <Link
-                  to={`/restaurants/${housetype.id}`}
-                  onClick={() => <Restaurant key={housetype.id} />}
-                >
-                  <button className="viewBtn">View More</button>
-                </Link> */}
+                
               {/* </div>  */}
             </div>
           </div>
