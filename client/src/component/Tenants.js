@@ -50,15 +50,19 @@ function Tenants() {
             <p className="card-text text-center">{house.price}</p>
           </div>
         </div>
-        {/*<div className="card restcards">
+        <div className="card restcards">
           <h3 className="text-center text-bold">Tenants</h3>
-          {house.tenants.map((tenant) => (
+          {/*{house.tenants.map((tenant) => (
             <div key={tenant.id}>
-              <img className="tenantimg" src={tenant.image} />
               <h5>
                 tenant-Name: <em>{tenant.name}</em>
               </h5>
-              <h5>Description</h5>
+              <p>
+                <em className="text-center">{tenant.age}</em>
+              </p>
+              <p>
+                <em className="text-center">{tenant.gender}</em>
+              </p>
               <p>
                 <em className="text-center">{tenant.description}</em>
               </p>
@@ -67,8 +71,8 @@ function Tenants() {
                 <em className="">{tenant.ingredients}</em>
               </p>
             </div>
-          ))}
-        </div>*/}
+          ))}*/}
+        </div>
       </div>
     </div>
   );
