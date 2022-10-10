@@ -27,6 +27,11 @@ function Header() {
             </a>
           </li>
           <li className="nav-item active">
+            <a className="nav-link" href="/apartments">
+              <i className="fa fa-cutlery" aria-hidden="true"></i> HouseTypes
+            </a>
+          </li>
+          <li className="nav-item active">
             <a className="nav-link" href="/signin">
               <button type="button" className="btn btn-primary">
                 Login
