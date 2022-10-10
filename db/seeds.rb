@@ -35,7 +35,7 @@ Landlord.all.each do |landlord|
     # get a random apartment
     apartment = Apartment.find(Apartment.pluck(:id).sample)
 
-    Tenant.create!(landlord_id: landlord.id, apartment_id: apartment.id, name: Faker::Name.name, age: rand(18..100), gender: [:Male, :Female].sample, contact: Faker::PhoneNumber)
+    Tenant.create!(landlord_id: landlord.id, apartment_id: apartment.id, name: Faker::Name.name, age: rand(18..100), gender: [:Male, :Female].sample, contact: Faker::PhoneNumber, house_no: Faker::Number)
 
     # House.create!(apartment_id: apartment.id,  house_no: Faker::Number)
   end
