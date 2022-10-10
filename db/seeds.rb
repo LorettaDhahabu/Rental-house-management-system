@@ -12,9 +12,9 @@ end
 end
 
 # create tenant data with faker gem
-5.times do
-    Tenant.create(name: Faker::Name.name, age: Faker::Number, gender:"male", contact: Faker::PhoneNumber, landlord_id: Faker::Number, apartment_id: Faker::Number)
-end
+# 5.times do
+#     Tenant.create(name: Faker::Name.name, age: Faker::Number, gender:"male", contact: Faker::PhoneNumber, landlord_id: Faker::Number, apartment_id: Faker::Number)
+# end
 
 # create house data with faker gem
 # 5.times do

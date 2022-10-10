@@ -1,5 +1,5 @@
 class TenantsController < ApplicationController
-    rescue_from ActiveRecord::RecordNotFound, with: :tenant_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :tenant_not_found
 
   rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity
 
@@ -12,7 +12,7 @@ class TenantsController < ApplicationController
   #  GET /tenants/:id
   def show
     tenant = Tenant.find(params[:id])
-    render json: tenant
+    render json: tenant, serializer: TenantAndApartmentSerializer, status: :ok
   end
 
   # POST/tenants
@@ -23,21 +23,29 @@ class TenantsController < ApplicationController
 
   # PATCH /tenants/:id
   def update
-    #f ind
+    #find
     tenant = Tenant.find(params[:id])
-    # update
     Tenant.update!(tenant_params)
     render json: tenant
   end
 
+  # DELETE /tenants/:id
+    def destroy
+        # find
+        tenant = Tenant.find(params[:id])
+        # delete
+        tenant.destroy
+        head :no_content
+    end
+
   private
 
   def tenant_params
-    params.permit(:id, :name, :age, :gender, :contact, :house_no, :tenant_id, :apartment_id, :landlord_id)
+    params.permit(:id, :name, :age, :gender, :contact, :landlord_id, :apartment_id, :house_no)
   end
 
   def unprocessable_entity(invalid)
-    render json: { errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
+    render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
   end
 
   def tenant_not_found
