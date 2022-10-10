@@ -28,12 +28,16 @@ function Header() {
           </li>
           <li className="nav-item active">
             <a className="nav-link" href="/apartments">
-              <i className="fa fa-cutlery" aria-hidden="true"></i> Login
+              <button type="button" class="btn btn-primary">
+                Login
+              </button>
             </a>
           </li>
           <li className="nav-item active">
             <a className="nav-link" href="/tenants">
-              <i className="fa fa-cutlery" aria-hidden="true"></i> SignUp
+              <button type="button" class="btn btn-primary">
+                SignUp
+              </button>
             </a>
           </li>
           <li className="nav-item active">
