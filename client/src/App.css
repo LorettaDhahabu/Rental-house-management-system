@@ -9,15 +9,21 @@
 }
 .signin-pg{
   height: 100vh;
+  background-color: #9AD5E7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-form{
-  height: 100%;
+  height: 80%;
+  width: 60%;
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #9AD5E7;
+  background-color: #87d2e9;
+  border-radius: .8em;
 }
 .login-form input{
   width: 20em;
