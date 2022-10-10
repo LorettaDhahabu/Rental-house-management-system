@@ -15,6 +15,13 @@ class LandlordsController < ApplicationController
     render json: landlord, serializer: LandlordApartmentSerializer, status: :ok
   end
 
+
+  # POST/landlords
+  def create
+    landlord = Landlord.create!(landlord_params)
+    render json: landlord, status: :created
+  end
+
   # PATCH /landlords/:id
   def update
     #f ind

@@ -15,6 +15,12 @@ class TenantsController < ApplicationController
     render json: tenant
   end
 
+  # POST/tenants
+  def create
+    tenant = Tenant.create!(tenant_params)
+    render json: tenant, status: :created
+  end
+
   # PATCH /tenants/:id
   def update
     #f ind
@@ -27,7 +33,7 @@ class TenantsController < ApplicationController
   private
 
   def tenant_params
-    params.permit(:id, :name, :age, :gender, :contact, :house_no, :landlord_id, :apartment_id)
+    params.permit(:id, :name, :age, :gender, :contact, :house_no, :tenant_id, :apartment_id, :landlord_id)
   end
 
   def unprocessable_entity(invalid)
