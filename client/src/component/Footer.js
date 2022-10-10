@@ -34,33 +34,32 @@ function Footer() {
             <div className="text-white text-center text-md-right">
               <ul className="list-unstyled list-block">
                 <li className="list-block-item">
-                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                  <i className="fa fa-linkedin" aria-hidden="true"></i>
                 </li>
                 <li className="list-block-item">
-                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                  <i className="fa fa-instagram" aria-hidden="true"></i>
                 </li>
                 <li className="list-block-item">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                  <i className="fa fa-facebook" aria-hidden="true"></i>
                 </li>
                 <li className="list-block-item">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                  <i className="fa fa-twitter" aria-hidden="true"></i>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <hr className="mb-4"></hr>
+        <hr className="mb-4 "></hr>
         <div className="row align-items-center">
-          <div className="col-md-7 col-lg-8">
+          <div className="col-md-6 col-lg-7">
             <p>Copyright @2022 All rights reserved</p>
           </div>
-          <div className="col-md-5 col-lg-4">
-            <p>Terms & Services </p>
-            <p>Privacy</p>
+          <div className="col-md-4 col-lg-4">
+            <p>Terms & Services Privacy</p>
           </div>
-          {/* <div className="col-md-5 col-lg-4">
-            <i className="fab fa-facebook"></i>
-          </div> */}
+          <div className="col-md-2 col-lg-1">
+            <i className="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
+          </div>
         </div>
       </div>
     </footer>
