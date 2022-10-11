@@ -6,6 +6,7 @@ import Footer from './component/Footer';
 import SignIn from './component/SignIn';
 import Houses from './component/Houses';
 import Tenants from './component/Tenants';
+import HouseTenant from './component/HouseTenant'
 
 function App() {
   return (
@@ -16,8 +17,8 @@ function App() {
           <Route path="/" exact element={<Home />}></Route>
           <Route exact path="/signin" element={<SignIn />}></Route>
           <Route path="/apartments" element={<Houses />}></Route>
-          <Route path="/apartments/:id" element={<Tenants />}></Route>
-          {/*<Route path="/restaurant_pizzas" element={<RestaurantPizzaForm />} />  */}
+          <Route path="/apartments/:id" element={<HouseTenant />}></Route>
+          <Route path="/tenants" element={<Tenants />} /> 
         </Routes>
         <Footer />
       </Router>

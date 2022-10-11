@@ -28,7 +28,12 @@ function Header() {
           </li>
           <li className="nav-item active">
             <a className="nav-link" href="/apartments">
-              <i className="fa fa-cutlery" aria-hidden="true"></i> HouseTypes
+              <i className="fa fa-cutlery" aria-hidden="true"></i> Houses
+            </a>
+          </li>
+          <li className="nav-item active">
+            <a className="nav-link" href="/tenants">
+              <i className="fa fa-cutlery" aria-hidden="true"></i> Tenants
             </a>
           </li>
           <li className="nav-item active">
