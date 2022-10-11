@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
 function Tenants() {
-    const [{ data: house, error, status }, setHouse] = useState({
+    const [{ data: houses, error, status }, setHouses] = useState({
     data: {},
     error: "",
     status: "pending",
@@ -16,62 +16,62 @@ function Tenants() {
       {
       if (response.ok) {
         response.json()
-          .then( ( house ) =>
+          .then( ( houses ) =>
           {
-          console.log(house);
-          setHouse({ data: house, error: "", status: "resolved" })
+          console.log(houses);
+          setHouses({ data: houses, error: "", status: "resolved" })
         } );
-        // console.log(house);
+        // console.log(houses);
       }
       else
       {
         response.json()
           .then((err) =>
-            setHouse({ data: "not found", error: err.error, status: "rejected" })
+            setHouses({ data: "not found", error: err.error, status: "rejected" })
           );
       }
     });
   }, [ id ] );
-  
-  // if (status === "pending") return <h1>Loading...</h1>;
-  // if (status === "rejected") return <h1>Error: {error.error}</h1>;
 
   return (
     <div className="restbody">
       <div className="container bg-darksalmon">
-        <div className="card restcards" key={house.id}>
+        <div className="card restcards" key={houses.id}>
           <img
-            src={house.image}
+            src={houses.image}
             className="card-img-top restimages"
-            alt={house.name}
+            alt={houses.name}
           />
           <div className="card-body">
-            <h5 className="card-title text-center">{house.name}</h5>
-            <p className="card-text text-center">{house.price}</p>
+            <h5 className="card-title text-center">{houses.name}</h5>
+            <p className="card-text text-center">{houses.price}</p>
           </div>
         </div>
         <div className="card restcards">
           <h3 className="text-center text-bold">Tenants</h3>
-          {/*{house.tenants.map((tenant) => (
-            <div key={tenant.id}>
-              <h5>
-                tenant-Name: <em>{tenant.name}</em>
-              </h5>
-              <p>
-                <em className="text-center">{tenant.age}</em>
-              </p>
-              <p>
-                <em className="text-center">{tenant.gender}</em>
-              </p>
-              <p>
-                <em className="text-center">{tenant.description}</em>
-              </p>
-              <h5>Ingredients</h5>
-              <p>
-                <em className="">{tenant.ingredients}</em>
-              </p>
-            </div>
-          ))}*/}
+
+          {(Array.isArray(houses.tenants) ? houses.tenants : []).map((tenant) => {
+            console.log(tenant);
+            return (
+              <div key={tenant.id}>
+                <h5>
+                  tenant-Name: <em>{tenant.name}</em>
+                </h5>
+                <p>
+                  <em className="text-center">{tenant.age}</em>
+                </p>
+                <p>
+                  <em className="text-center">{tenant.gender}</em>
+                </p>
+                <p>
+                  <em className="text-center">{tenant.house_no}</em>
+                </p>
+                <p>
+                  <em className="">{tenant.contact}</em>
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
