@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :payments
+  resources :rooms
+  resources :users
   resources :landlords,  only: [:index, :show, :create, :update, :destroy]
 
   resources :apartments, only: [:index, :show, :create, :update, :destroy]

@@ -10,22 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_10_094120) do
+ActiveRecord::Schema.define(version: 2022_10_11_180730) do
 
   create_table "apartments", force: :cascade do |t|
     t.string "name"
     t.string "image"
     t.string "description"
     t.integer "price"
+    t.integer "landlord_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "landlords", force: :cascade do |t|
     t.string "name"
-    t.string "username"
+    t.integer "user_id"
     t.string "email"
-    t.string "password_digest"
+    t.integer "phone_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer "tenant_id"
+    t.integer "invoice_no"
+    t.integer "amount_paid"
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer "room_no"
+    t.integer "apartment_id"
+    t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -35,11 +53,16 @@ ActiveRecord::Schema.define(version: 2022_10_10_094120) do
     t.integer "age"
     t.string "gender"
     t.integer "contact"
-    t.integer "landlord_id"
-    t.integer "apartment_id"
+    t.integer "room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "house_no"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

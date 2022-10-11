@@ -1,6 +1,6 @@
 class Landlord < ApplicationRecord
-    has_many :tenants
-    has_many :apartments, through: :tenants
+    belongs_to :user
+    has_many :apartments
 
     validates :username, presence: true
     validates :email, presence: true

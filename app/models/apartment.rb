@@ -1,6 +1,6 @@
 class Apartment < ApplicationRecord
-    has_many :tenants
-    has_many :landlords, through: :tenants
+    belongs_to :landlord
+    has_many :rooms
 
     # has_many :houses
 end
