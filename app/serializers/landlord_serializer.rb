@@ -1,3 +1,3 @@
 class LandlordSerializer < ActiveModel::Serializer
-  attributes :id, :name, :username, :email, :password_digest
+  attributes :id, :name, :phone_number, :email, :user_id
 end

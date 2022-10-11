@@ -11,8 +11,8 @@ class LandlordsController < ApplicationController
 
   #  GET /landlords/:id
   def show
-    landlord = Landlord.find(params[:id])
-    render json: landlord, serializer: LandlordApartmentSerializer, status: :ok
+    landlord = Landlord.find_by(id: params[:id])
+    render json: landlord, status: :ok
   end
 
 
@@ -34,7 +34,7 @@ class LandlordsController < ApplicationController
   private
 
   def landlord_params
-    params.permit(:id, :name, :username, :email, :password_digest)
+    params.permit(:id, :user_id, :name, :phone_number, :email)
   end
 
   def unprocessable_entity(invalid)

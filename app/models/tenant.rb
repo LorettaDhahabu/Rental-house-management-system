@@ -1,6 +1,6 @@
 class Tenant < ApplicationRecord
-    belongs_to :landlord
     belongs_to :apartment
+    has_one :payment
     
     # has_one :house
 
