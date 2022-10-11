@@ -1,6 +1,5 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-// import Dashboard from './component/Dashboard'
 
 function Home() {
   return (
@@ -56,16 +55,15 @@ function Home() {
                       placeholder="enter your password...."
                     />
                   </div>
-                  {/* <Link
+                  <Link
                     to={`/dashboard`}
-                    onClick={() => <Dashboard />}
-                  >
+                    >
                     <button className="viewBtn">Login </button>
-                  </Link> */}
+                  </Link>
 
-                  <button type="submit" class="btn btn-primary">
+                  {/* <button type="submit" class="btn btn-primary">
                     Login <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                  </button>
+                  </button> */}
                   <div>
                     <p>Don’t have an account yet?</p>
                     <a href="#">Creat Account</a>

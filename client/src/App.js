@@ -6,7 +6,8 @@ import Footer from './component/Footer';
 import SignIn from './component/SignIn';
 import Houses from './component/Houses';
 import Tenants from './component/Tenants';
-import HouseTenant from './component/HouseTenant'
+import HouseTenant from './component/HouseTenant';
+import Dashboard from './component/Dashboard'
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
           <Route exact path="/signin" element={<SignIn />}></Route>
           <Route path="/apartments" element={<Houses />}></Route>
           <Route path="/apartments/:id" element={<HouseTenant />}></Route>
-          <Route path="/tenants" element={<Tenants />} /> 
+          <Route path="/tenants" element={<Tenants />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <Footer />
       </Router>
