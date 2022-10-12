@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Tenants from './Tenants';
+import Header from "./Header";
 
 
 function Houses ()
@@ -61,13 +62,13 @@ function Houses ()
       </div>
     );
   });
-  return <div>{houseList}</div>;
-  // return (
-  //   <div><h1>house</h1>
-      
-  //   </div>
-    
-  // )
+  return(
+  <>
+    <Header />
+    {houseList}
+    </>
+  )
+  
 }
 
 export default Houses;

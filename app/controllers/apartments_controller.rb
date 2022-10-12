@@ -3,7 +3,7 @@ class ApartmentsController < ApplicationController
 
   rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity
 
-  skip_before_action :authenticate, only: [:index, :show, :create]
+  skip_before_action :authenticate, only: [:index, :show, :create, :update]
   
   # GET /apartments
   def index
@@ -14,7 +14,7 @@ class ApartmentsController < ApplicationController
   #  GET /apartments/:id
   def show
     apartment = Apartment.find(params[:id])
-    render json: apartment, serializer: HouseTenantSerializer,  status: :ok
+    render json: apartment, serializer: ApartmentRoomSerializer,  status: :ok
   end
 
   # PATCH /apartments/:id

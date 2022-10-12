@@ -7,13 +7,7 @@ skip_before_action :authenticate, only: [:create, :index]
     render json: users
   end
   # GET /users/:id
-      def create
-        user = User.create!(user_params)
-        session[:user_id] = user.id
-        render json: user, status: :created
-    end
-
-    def show
+  def show
         user = User.find(session[:user_id])
         if user
             render json: user, status: :created
@@ -21,6 +15,15 @@ skip_before_action :authenticate, only: [:create, :index]
             render json: {error: "Not authorized"}, status: :unauthorized
         end
     end
+
+    #POST user
+      def create
+        user = User.create!(user_params)
+        session[:user_id] = user.id
+        render json: user, status: :created
+    end
+
+    
 
 
     private
