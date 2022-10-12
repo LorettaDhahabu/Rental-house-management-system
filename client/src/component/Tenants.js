@@ -7,7 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Tenant from "./Tenant";
 
 function Tenants({ onAddingTenant }) {
@@ -20,6 +20,7 @@ function Tenants({ onAddingTenant }) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getTenants();
@@ -31,7 +32,7 @@ function Tenants({ onAddingTenant }) {
     setTenants(result);
   }
 
-  function deleteBook(id) {
+  function deleteTenant(id) {
     fetch(`/tenants/${id}`, {
       method: "DELETE",
       headers: {
@@ -71,9 +72,11 @@ function Tenants({ onAddingTenant }) {
           console.log(newTenant);
           onAddingTenant(newTenant);
 
-          // navigate(`/tenants/${id}`);
+          navigate(`/tenants/${id}`);
           setErrors([]);
-        });
+        } );
+        
+        // navigate("/dashboard");
       } else {
         response.json().then((err) => setErrors(err.errors));
       }
@@ -242,7 +245,7 @@ function Tenants({ onAddingTenant }) {
                 </TableCell>
                 <button
                   onClick={() => {
-                    deleteBook(row.id);
+                    deleteTenant(row.id);
                   }}
                   type="button"
                   className="btn-danger my-3"
