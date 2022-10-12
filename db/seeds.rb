@@ -115,14 +115,14 @@ Room.create([
 
 Tenant.create([
   {
-    room_id: Room.all.sample.id,
+    room_id: Room.id,
     name: "Sande Nickson",
     age:"23",
     gender:"Male",
     contact:"0724435642"
   },
   {
-    room_id: Room.all.sample.id,
+    room_id: Room.id,
     name: "Tsofa Kevin",
     age:"43",
     gender:"Female",
@@ -156,29 +156,29 @@ Tenant.create([
 
 ])
 
-Payment.create([
-  { 
+# Payment.create([
+#   { 
     
-    invoice_no: "12345",
-    amount_paid: "15000",
-    date:""
-  },
-    {
+#     invoice_no: "12345",
+#     amount_paid: "15000",
+#     date:""
+#   },
+#     {
       
-    invoice_no: "45677",
-    amount_paid: "15000",
-    date:""
-  },
+#     invoice_no: "45677",
+#     amount_paid: "15000",
+#     date:""
+#   },
 
-    {
+#     {
       
-    invoice_no: "89774",
-    amount_paid: "15000",
-    date:""
-  },
+#     invoice_no: "89774",
+#     amount_paid: "15000",
+#     date:""
+#   },
 
 
-])
+# ])
 
 # User.all.each do |user|
 #   rand(1..2).times do

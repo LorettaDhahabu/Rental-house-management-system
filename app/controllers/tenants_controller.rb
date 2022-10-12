@@ -3,6 +3,8 @@ class TenantsController < ApplicationController
 
   rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity
 
+  skip_before_action :authenticate, only: [:index, :show, :create]
+
   # GET /tenants
   def index
     tenants = Tenant.all
