@@ -1,7 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-function Home() {
+function Home ( { onLogin } )
+{
+   const [showLogin, setShowLogin] = useState(true);
   return (
     <div className="container-fluid bg-success vh-100">
       <div className="home-form">

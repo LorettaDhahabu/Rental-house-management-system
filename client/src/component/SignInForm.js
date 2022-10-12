@@ -65,10 +65,10 @@ function SignInForm ( { onLogin } )
             <Error key={err}>{err}</Error>
           ))}
         </div>
-        <div>
+        {/* <div>
           <p>Don’t have an account yet?</p>
           <a href="#">Creat Account</a>
-        </div>
+        </div> */}
       </form>
     </div>
   );
