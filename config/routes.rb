@@ -12,6 +12,14 @@ Rails.application.routes.draw do
 
   resources :tenants, only: [:index, :show, :create, :update, :destroy]
 
+  # post "/signup", to: "users#create"
+
+  # get "/me", to: "users#show"
+
+  post "login", to: "sessions#create"
+  
+  delete "logout", to: "sessions#destroy"
+
   # resources :houses, only: [:index, :show, :create, :update, :destroy]
 
   
