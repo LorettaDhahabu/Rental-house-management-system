@@ -3,7 +3,7 @@ class TenantsController < ApplicationController
 
   rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity
 
-  skip_before_action :authenticate, only: [:index, :show, :create]
+  skip_before_action :authenticate, only: [:index, :show, :create, :update, :destroy]
 
   # GET /tenants
   def index
@@ -14,7 +14,7 @@ class TenantsController < ApplicationController
   #  GET /tenants/:id
   def show
     tenant = Tenant.find(params[:id])
-    render json: tenant, status: :ok
+    render json: tenant, serializer: HouseTenantSerializer, status: :ok
   end
 
   # POST/tenants
@@ -27,8 +27,8 @@ class TenantsController < ApplicationController
   def update
     #find
     tenant = Tenant.find(params[:id])
-    Tenant.update!(tenant_params)
-    render json: tenant
+    tenant.update!(tenant_params)
+    render json: tenant, serializer: HouseTenantSerializer, status: :ok
   end
 
   # DELETE /tenants/:id
@@ -43,7 +43,7 @@ class TenantsController < ApplicationController
   private
 
   def tenant_params
-    params.permit(:id, :name, :age, :gender, :contact, :room_id)
+    params.permit(:id, :name, :age, :gender, :contact, :room_id, :rooms)
   end
 
   def unprocessable_entity(invalid)

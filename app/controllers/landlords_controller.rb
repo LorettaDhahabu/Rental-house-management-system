@@ -3,7 +3,7 @@ class LandlordsController < ApplicationController
 
   rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity
 
-  skip_before_action :authenticate, only: [:index, :show, :create]
+  skip_before_action :authenticate, only: [:index, :show, :create, :update]
   
   # GET /landlords
   def index
@@ -29,7 +29,7 @@ class LandlordsController < ApplicationController
     #f ind
     landlord = Landlord.find(params[:id])
     # update
-    Landlord.update!(landlord_params)
+    landlord.update!(landlord_params)
     render json: landlord
   end
 

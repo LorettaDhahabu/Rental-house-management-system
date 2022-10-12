@@ -27,7 +27,7 @@ class RoomsController < ApplicationController
   def update
     #find
     room = Room.find(params[:id])
-    Room.update!(room_params)
+    room.update!(room_params)
     render json: room
   end
 
@@ -36,7 +36,7 @@ class RoomsController < ApplicationController
     # find
     room = Room.find(params[:id])
     # delete
-    Room.destroy
+    room.destroy
     head :no_content
   end
 

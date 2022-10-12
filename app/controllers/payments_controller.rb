@@ -3,7 +3,7 @@ class PaymentsController < ApplicationController
 
   rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity
 
-  skip_before_action :authenticate, only: [:index, :show, :create]
+  skip_before_action :authenticate, only: [:index, :show, :create, :update]
   
   # GET /payments
   def index
@@ -14,7 +14,7 @@ class PaymentsController < ApplicationController
   #  GET /payments/:id
   def show
     payment = Payment.find(params[:id])
-    render json: payment, status: :ok
+    render json: payment, serializer: TenantPaymentSerializer,  status: :ok
   end
 
   # POST/payments
@@ -27,8 +27,8 @@ class PaymentsController < ApplicationController
   def update
     #find
     payment = Payment.find(params[:id])
-    Payment.update!(payment_params)
-    render json: payment
+    payment.update!(payment_params)
+    render json: payment, serializer: TenantPaymentSerializer, status: :ok
   end
 
   # DELETE /payments/:id
@@ -36,7 +36,7 @@ class PaymentsController < ApplicationController
     # find
     payment = Payment.find(params[:id])
     # delete
-    Payment.destroy
+    payment.destroy
     head :no_content
   end
 

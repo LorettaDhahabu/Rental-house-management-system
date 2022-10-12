@@ -4,7 +4,7 @@ class ApartmentsController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity
 
   skip_before_action :authenticate, only: [:index, :show, :create, :update]
-  
+
   # GET /apartments
   def index
     apartments = Apartment.all
@@ -14,26 +14,24 @@ class ApartmentsController < ApplicationController
   #  GET /apartments/:id
   def show
     apartment = Apartment.find(params[:id])
-    render json: apartment, serializer: ApartmentRoomSerializer,  status: :ok
+    render json: apartment, serializer: ApartmentRoomSerializer, status: :ok
   end
 
   # PATCH /apartments/:id
   def update
-    #f ind
     apartment = Apartment.find(params[:id])
-    # update
-    Apartment.update!(apartment_params)
+    apartment.update!(apartment_params)
     render json: apartment
   end
 
   private
 
   def apartment_params
-    params.permit(:id, :name, :image, :description, :price)
+    params.require(:apartment).permit(:id, :name, :image, :description, :price)
   end
 
   def unprocessable_entity(invalid)
-    render json: { errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
+    render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
   end
 
   def apartment_not_found
