@@ -5,6 +5,7 @@ import Footer from "./component/Footer";
 import Houses from "./component/Houses";
 import House from "./component/House";
 import Tenants from "./component/Tenants";
+import Tenant from "./component/Tenant";
 import Dashboard from "./component/Dashboard";
 import SignInPage from "./component/SignInPage";
 import SignUpForm from "./component/SignUpForm";
@@ -21,6 +22,7 @@ function App() {
           <Route path="/apartments" element={<Houses />}></Route>
           <Route path="/apartments/:id" element={<House />}></Route>
           <Route path="/tenants" element={<Tenants />} />
+          <Route path="/tenants/:id" element={<Tenant />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <Footer />

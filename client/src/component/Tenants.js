@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Tenant from './Tenant';
 
 function Tenants() {
   const [tenants, setTenants] = useState([]);
@@ -33,12 +34,12 @@ function Tenants() {
               <p>
                 <em className="">{tenant.contact}</em>
               </p>
-              {/* <Link
+              <Link
                 to={`/tenants/${tenant.id}`}
-                onClick={() => <Tenants key={tenant.id} />}
+                onClick={() => <Tenant key={tenant.id} />}
               >
                 <button className="viewBtn">View More</button>
-              </Link> */}
+              </Link>
               {/* <div className="restaurant-details">
                 <button
                   onClick={() => {
