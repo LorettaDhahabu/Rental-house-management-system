@@ -7,27 +7,25 @@ function Home({ onLogin }) {
    const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <div className="container-fluid bg-success vh-100">
+    <div className="container-fluid bg-success ">
       {showLogin ? (
-        <>
+        <div>
           <SignInForm onLogin={onLogin} />
-          <br></br>
-          <p>
+          <p className="tosignup">
             Don't have an account? &nbsp;
-            <br></br>
             <button color="secondary" onClick={() => setShowLogin(false)}>
               Sign Up
             </button>
           </p>
-        </>
+        </div>
       ) : (
         <>
           <SignUpForm onLogin={onLogin} />
           <br></br>
-          <p>
+          <p className='tologin'>
             Already have an account? &nbsp;
             <button color="secondary" onClick={() => setShowLogin(true)}>
-              Log In
+              Login
             </button>
           </p>
         </>

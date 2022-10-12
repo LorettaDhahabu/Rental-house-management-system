@@ -7,6 +7,7 @@ import Houses from './component/Houses';
 import Tenants from './component/Tenants';
 import Dashboard from './component/Dashboard'
 import SignInPage from './component/SignInPage';
+import SignUpForm from './component/SignUpForm';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home />}></Route>
           <Route exact path="/login" element={<SignInPage />}></Route>
+          <Route exact path="/register" element={<SignUpForm />}></Route>
           <Route path="/apartments" element={<Houses />}></Route>
           {/* <Route path="/apartments/:id" element={<HouseTenant />}></Route> */}
           <Route path="/tenants" element={<Tenants />} />

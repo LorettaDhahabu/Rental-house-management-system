@@ -38,22 +38,23 @@ function SignUpForm({ onLogin }) {
   }
 
   return (
-    <div className="signin-pg">
-      <form className="login-form" onSubmit={handleSubmit}>
+    <div className=" signup-pg">
+      <form className=" container signup-form " onSubmit={handleSubmit}>
         <div class="form-group">
-          <label for="exampleInputEmail1">Full Name</label>
-          <input
-            type="text"
-            id="name"
-            autoComplete="on"
-            class="form-control"
-            placeholder="enter your fullname..."
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+          <label for="name">
+            Full Name</label>
+            <input
+              type="text"
+              id="name"
+              autoComplete="on"
+              class="form-control"
+              placeholder="enter your fullname..."
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1">Username</label>
+          <label for="username">Username</label>
           <input
             type="text"
             id="username"
@@ -89,7 +90,7 @@ function SignUpForm({ onLogin }) {
           />
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
+          <label for="email">Email address</label>
           <input
             type="email"
             autoComplete="current-email"
@@ -102,7 +103,7 @@ function SignUpForm({ onLogin }) {
           />
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1">Phone Number</label>
+          <label for="phone-number">Phone Number</label>
           <input
             type="tel"
             autoComplete="on"
@@ -116,8 +117,8 @@ function SignUpForm({ onLogin }) {
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-primary">
-            Login <i class="fa fa-arrow-right" aria-hidden="true"></i>
-            {isLoading ? "Loading..." : "Login"}
+            {isLoading ? "Loading..." : "Signup"}{" "}
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
           </button>
         </div>
         <div class="form-group">

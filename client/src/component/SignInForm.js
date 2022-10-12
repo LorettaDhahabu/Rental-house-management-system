@@ -56,8 +56,8 @@ function SignInForm ( { onLogin } )
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-primary">
-            Login <i class="fa fa-arrow-right" aria-hidden="true"></i>
-            {isLoading ? "Loading..." : "Login"}
+            {isLoading ? "Loading..." : "Login"}{" "}
+            <i class="fa fa-sign-in" aria-hidden="true"></i>
           </button>
         </div>
         <div class="form-group">
