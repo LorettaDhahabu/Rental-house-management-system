@@ -41,7 +41,7 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.permit(:id, :room_no, :price, :apartment_id)
+    params.permit(:id, :room_no, :apartment_id)
   end
 
   def unprocessable_entity(invalid)

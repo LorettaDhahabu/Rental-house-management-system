@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { useParams } from "react-router-dom";
 
-function HouseTenant() {
+function Houseroom() {
   const [{ data: houses, error, status }, setHouses] = useState({
     data: {},
     error: "",
@@ -46,28 +46,16 @@ function HouseTenant() {
           </div>
         </div>
         <div className="card restcards">
-          <h3 className="text-center text-bold">Tenants</h3>
+          <h3 className="text-center text-bold">Rooms</h3>
 
-          {(Array.isArray(houses.tenants) ? houses.tenants : []).map(
-            (tenant) => {
-              // console.log(tenant);
+          {(Array.isArray(houses.rooms) ? houses.rooms : []).map(
+            (room) => {
+              // console.log(room);
               return (
-                <div key={tenant.id}>
+                <div key={room.id}>
                   <h5>
-                    tenant-Name: <em>{tenant.name}</em>
+                    room-Number: <em>{room.room_no}</em>
                   </h5>
-                  <p>
-                    <em className="text-center">{tenant.age}</em>
-                  </p>
-                  <p>
-                    <em className="text-center">{tenant.gender}</em>
-                  </p>
-                  <p>
-                    <em className="text-center">{tenant.house_no}</em>
-                  </p>
-                  <p>
-                    <em className="">{tenant.contact}</em>
-                  </p>
                 </div>
               );
             }
@@ -78,4 +66,4 @@ function HouseTenant() {
   );
 }
 
-export default HouseTenant
+export default Houseroom

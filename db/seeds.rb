@@ -102,12 +102,12 @@ Room.create([
   },
   {
     apartment_id: Apartment.all.sample.id,
-    room_no: "110",
+    room_no: "113",
     
   },
   {
     apartment_id: Apartment.all.sample.id,
-    room_no: "110",
+    room_no: "114",
     
   },
 
@@ -158,17 +158,20 @@ Tenant.create([
 
 Payment.create([
   { 
+    
     invoice_no: "12345",
     amount_paid: "15000",
     date:""
   },
     {
+      
     invoice_no: "45677",
     amount_paid: "15000",
     date:""
   },
 
     {
+      
     invoice_no: "89774",
     amount_paid: "15000",
     date:""

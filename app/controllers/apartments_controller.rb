@@ -12,7 +12,7 @@ class ApartmentsController < ApplicationController
   #  GET /apartments/:id
   def show
     apartment = Apartment.find(params[:id])
-    render json: apartment,  status: :ok
+    render json: apartment, serializer: HouseTenantSerializer,  status: :ok
   end
 
   # PATCH /apartments/:id
