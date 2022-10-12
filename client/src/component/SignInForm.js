@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 
 function SignInForm ( { onLogin } )
 {
@@ -62,7 +62,7 @@ function SignInForm ( { onLogin } )
         </div>
         <div class="form-group">
           {errors.map((err) => (
-            <Error key={err}>{err}</Error>
+            <div key={err}>{err}</div>
           ))}
         </div>
         {/* <div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import SignInForm from './SignInForm';
 import SignUpForm from './SignUpForm';
 
@@ -8,24 +8,25 @@ function SignInPage({ onLogin }) {
     <div>
       {showLogin ? (
         <>
-          <SignInForm onLogin={onLogin} />
-          <Divider />
+         <SignInForm onLogin={ onLogin } />
+                <br></br>
           <p>
-            Don't have an account? &nbsp;
-            <Button color="secondary" onClick={() => setShowLogin(false)}>
+                      Don't have an account? &nbsp;
+                      <br></br>
+            <button color="secondary" onClick={() => setShowLogin(false)}>
               Sign Up
-            </Button>
+            </button>
           </p>
         </>
       ) : (
         <>
           <SignUpForm onLogin={onLogin} />
-          <Divider />
+          <br></br>
           <p>
             Already have an account? &nbsp;
-            <Button color="secondary" onClick={() => setShowLogin(true)}>
+            <button color="secondary" onClick={() => setShowLogin(true)}>
               Log In
-            </Button>
+            </button>
           </p>
         </>
       )}

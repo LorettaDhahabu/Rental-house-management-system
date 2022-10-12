@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 function SignUpForm({ onLogin }) {
   const [name, setName] = useState("");
@@ -122,7 +122,7 @@ function SignUpForm({ onLogin }) {
         </div>
         <div class="form-group">
           {errors.map((err) => (
-            <Error key={err}>{err}</Error>
+            <div key={err}>{err}</div>
           ))}
         </div>
         {/* <div>
