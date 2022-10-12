@@ -3,6 +3,8 @@ class ApartmentsController < ApplicationController
 
   rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity
 
+  skip_before_action :authenticate, only: [:index, :show, :create]
+  
   # GET /apartments
   def index
     apartments = Apartment.all
