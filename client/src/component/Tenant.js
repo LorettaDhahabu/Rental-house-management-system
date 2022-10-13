@@ -59,35 +59,42 @@ function Tenant() {
       .then((data) => {
         // console.log(data);
         setTenant(data);
-      });
+      } );
+    
+    fetch( `/tenants/${id}` )
+      .then( ( response ) => response.json() )
+      .then( ( data ) =>
+      {
+      setTenant(data)
+    })
   }
   return (
     <div className="restbody">
       <div className="container bg-darksalmon">
-        <div className="card restcards" key={tenant.id}>
+        <div className="card restcards" key={tenant?.id}>
           <div className="card-body">
             <h5 className="card-title text-center">
-              Full Name: <em>{tenant.name}</em>
+              Full Name: <em>{tenant?.name}</em>
             </h5>
             <p className="card-text text-center">
-              Apartment: {tenant.room.apartment_id}
+              Apartment: {tenant?.room.apartment_id}
             </p>
             <p className="card-text text-center">
-              House.No: {tenant.room.room_no}
+              House.No: {tenant?.room.room_no}
             </p>
-            <p className="card-text text-center">Age: {tenant.age}</p>
-            <p className="card-text text-center">Gender: {tenant.gender}</p>
+            <p className="card-text text-center">Age: {tenant?.age}</p>
+            <p className="card-text text-center">Gender: {tenant?.gender}</p>
             <p className="card-text text-center">
-              Phone Number: {tenant.contact}
-            </p>
-            <p className="card-text text-center">
-              Rent-paid: {tenant.payment.amount_paid}
+              Phone Number: {tenant?.contact}
             </p>
             <p className="card-text text-center">
-              Date-paid: {tenant.payment.date}
+              Rent-paid: {tenant?.payment.amount_paid}
             </p>
             <p className="card-text text-center">
-              Invoice.no: {tenant.payment.invoice_no}
+              Date-paid: {tenant?.payment.date}
+            </p>
+            <p className="card-text text-center">
+              Invoice.no: {tenant?.payment.invoice_no}
             </p>
           </div>
         </div>
@@ -137,7 +144,7 @@ function Tenant() {
                       autoComplete="off"
                       className="form-control"
                       placeholder="enter tenant name..."
-                      value={tenant.name}
+                      value={tenant?.name}
                       onChange={(e) => handleChange(e)}
                     />
                   </div>
@@ -149,7 +156,7 @@ function Tenant() {
                       autoComplete="off"
                       className="form-control"
                       placeholder="enter tenant age..."
-                      value={tenant.age}
+                      value={tenant?.age}
                       onChange={(e) => setTenant(e.target.value)}
                     />
                   </div>
@@ -161,7 +168,7 @@ function Tenant() {
                       autoComplete="off"
                       className="form-control"
                       placeholder="enter tenant gender..."
-                      value={tenant.gender}
+                      value={tenant?.gender}
                       onChange={(e) => setTenant(e.target.value)}
                     />
                   </div>
@@ -173,14 +180,14 @@ function Tenant() {
                       autoComplete="off"
                       className="form-control"
                       placeholder="enter tenant contact..."
-                      value={tenant.contact}
+                      value={tenant?.contact}
                       onChange={(e) => setTenant(e.target.value)}
                     />
                   </div>
 
                   <div className="form-group">
-                    <button type="submit" className="btn btn-primary">
-                      {isLoading ? "Loading..." : "Add"}{" "}
+                    <button type="submit" className="btn btn-primary" onClick={handleSubmit}>
+                      {isLoading ? "Loading..." : "Change"}{" "}
                       <i className="fa fa-sign-in" aria-hidden="true"></i>
                     </button>
                   </div>

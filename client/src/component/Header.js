@@ -37,6 +37,11 @@ function Header() {
             </a>
           </li>
           <li className="nav-item active">
+            <a className="nav-link" href="/payments">
+              <i className="fa fa-cutlery" aria-hidden="true"></i> Payments
+            </a>
+          </li>
+          <li className="nav-item active">
             <a className="nav-link" href="/signin">
               <button type="button" className="btn btn-primary">
                 Login
