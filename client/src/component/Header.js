@@ -20,12 +20,12 @@ function Header() {
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ml-auto">
-          {/* <li className="nav-item active">
+           <li className="nav-item active">
             <a className="nav-link" href="/">
               <i className="fa fa-home" aria-hidden="true"></i>
               Home <span className="sr-only">(current)</span>
-            </a>
-          </li> */}
+            </a> 
+          </li> 
           {/* <li className="nav-item active">
             <a className="nav-link" href="/apartments">
               <i className="fa fa-cutlery" aria-hidden="true"></i> Houses

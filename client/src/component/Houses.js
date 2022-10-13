@@ -20,8 +20,9 @@ function Houses ()
 
   let houseList = houses.map((house) => {
     return (
+    <div className='housebody'>
       <div className="restbody" key={house.id}>
-        <div className="container bg-darksalmon">
+        <div className="container-fluid">
           <div className="card restcards">
             <img
               src={house.image}
@@ -59,6 +60,7 @@ function Houses ()
             </div>
           </div>
         </div>
+      </div>
       </div>
     );
   });

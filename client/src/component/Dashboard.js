@@ -94,26 +94,21 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function Dashboard ( { user, setUser} )
+export default function Dashboard ( )
 {
+  const [user, setUser] = useState(null)
   const [error, setErrors] = useState([])
   const navigate = useNavigate(); 
   
   function handleLogoutClick ()
   {
     fetch( "/logout",
-      {
-        method: "DELETE",
-        headers: {
-        "Content-Type": "application/json",
-      },
-      } )
+      { method: "DELETE" } )
       .then( ( response ) =>
-      { 
-        setUser(null);
+      {  
         if ( response.ok )
-        {
-        
+        { 
+          setUser(null);
         navigate("/");
       }
       else
