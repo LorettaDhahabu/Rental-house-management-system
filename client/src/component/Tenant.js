@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import {useParams} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import Header from './Header';
 
 function Tenant() {
   const [{ data: tenant, error, status }, setTenant] = useState({
@@ -83,6 +84,8 @@ function Tenant() {
     // })
   }
   return (
+    <>
+      <Header/>
     <div className="restbody">
       <div className="container bg-darksalmon">
         <div className="card restcards" key={tenant?.id}>
@@ -230,7 +233,8 @@ function Tenant() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+      </>
   );
 }
 

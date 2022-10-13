@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
+import Header from './Header';
 
 
 function Payment ()
@@ -82,6 +83,8 @@ function Payment ()
       } );
   }
   return (
+    <>
+      <Header/>
     <div className="restbody">
       <div className="container bg-darksalmon">
         <div className="card restcards" key={payment.id}>
@@ -214,6 +217,7 @@ function Payment ()
         </div>
       </div>
     </div>
+    </>
   );
 }
 
