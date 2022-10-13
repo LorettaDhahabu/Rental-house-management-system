@@ -197,7 +197,7 @@ Payment.create([
   },
 
   {
-    tenant_id: Tenant.all.sample.id,
+    tenant_id: "3",
     invoice_no: "89774",
     amount_paid: "15000",
     date: "22/09/2022",
@@ -205,6 +205,31 @@ Payment.create([
   {
     tenant_id: "4",
     invoice_no: "23456",
+    amount_paid: "15000",
+    date: "15/09/2022",
+  },
+
+  {
+    tenant_id: "2",
+    invoice_no: "90875",
+    amount_paid: "13000",
+    date: "20/09/2022",
+  },
+  {
+    tenant_id: "5",
+    invoice_no: "33456",
+    amount_paid: "15000",
+    date: "11/09/2022",
+  },
+  {
+    tenant_id: Tenant.all.sample.id,
+    invoice_no: "88674",
+    amount_paid: "14000",
+    date: "02/09/2022",
+  },
+  {
+    tenant_id: "6",
+    invoice_no: "23406",
     amount_paid: "15000",
     date: "15/09/2022",
   },

@@ -9,7 +9,7 @@ function Payment ()
       error: "",
       status: "pending",
     });
-    const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState([]);
   const [ isLoading, setIsLoading ] = useState( false );
   const [editpayment, setEditPayment] = useState({
     invoice_no: "",
@@ -17,11 +17,11 @@ function Payment ()
     date: "",
   });
 
-  function FillEditInput(payment) {
+  function FillEditPayment(payment) {
     setEditPayment({
-      name: payment.invoice_no,
-      age: payment.amount_paid,
-      gender: payment.date,
+      invoice_no: payment.invoice_no,
+      amount_paid: payment.amount_paid,
+      date: payment.date,
     });
     // console.log(tenant);
   }
@@ -101,22 +101,22 @@ function Payment ()
       </div>
       <button
         type="button"
-        className="btn btn-primary my-4"
+        className="btn btn-primary my-4 printBtn"
         data-toggle="modal"
         data-target="#exampleModal"
         onClick={handleSubmitInvoice}
       >
-        Print
+        Print <i className="fa fa-print" aria-hidden="true"></i>
       </button>
 
       <button
         type="button"
-        className="btn btn-primary my-4"
+        className="btn btn-primary my-4 payeditBtn"
         data-toggle="modal"
         data-target="#exampleModal"
-        onClick={() => FillEditInput(tenant)}
+        onClick={() => FillEditPayment(payment)}
       >
-        Edit
+        Edit <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
       </button>
       <div
         className="modal fade"
@@ -144,10 +144,10 @@ function Payment ()
               <div className="addtenant-pg">
                 <form className="adding-form">
                   <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Full Name</label>
+                    <label htmlFor="exampleInputEmail1">Invoice</label>
                     <input
                       type="text"
-                      id="name"
+                      id="invoice_no"
                       autoComplete="off"
                       className="form-control"
                       placeholder="enter tenant name..."
@@ -156,10 +156,10 @@ function Payment ()
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Age</label>
+                    <label htmlFor="exampleInputEmail1">Amout Paid</label>
                     <input
                       type="number{ >= 18}"
-                      id="age"
+                      id="amount_paid"
                       autoComplete="off"
                       className="form-control"
                       placeholder="enter tenant age..."
@@ -168,26 +168,14 @@ function Payment ()
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Gender</label>
+                    <label htmlFor="exampleInputEmail1">Date</label>
                     <input
                       type="ext"
-                      id="gender"
+                      id="date"
                       autoComplete="off"
                       className="form-control"
                       placeholder="enter tenant gender..."
                       value={editpayment.date}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Contact</label>
-                    <input
-                      type="tel"
-                      id="contact"
-                      autoComplete="off"
-                      className="form-control"
-                      placeholder="enter tenant contact..."
-                      value={edittenant.contact}
                       onChange={handleChange}
                     />
                   </div>

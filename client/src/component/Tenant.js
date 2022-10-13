@@ -121,7 +121,7 @@ function Tenant() {
         data-target="#exampleModal"
         onClick={() => FillEditInput(tenant)}
       >
-        Edit
+        Edit <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
       </button>
       <div
         className="modal fade"

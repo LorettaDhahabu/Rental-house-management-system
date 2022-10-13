@@ -215,3 +215,14 @@ background-color: #9AD5E7;
   border: none;
   background-color: #87d2e9;
 }
+
+.printBtn{
+  float: right;
+  margin-right: 20em;
+  width: 5em;
+  height: 2.5em;
+}
+.payeditBtn{
+  width: 5em;
+  height: 2.5em;
+}
