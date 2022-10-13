@@ -140,3 +140,27 @@ background-color: #9AD5E7;
   align-items: center;
   margin-top: 2em;
 }
+.toolbar{
+  background-color: #0D1317;
+}
+.menucomps{
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   gap: 10em;
+}
+.signoutBtn{
+  position: relative;
+  float: right;
+  margin-top: .2em;
+  border: #0592CD 3px solid;
+  border-radius: .4em;
+  font-size: 18px;
+  width: 5em;
+}
+.signoutBtn:hover{
+  box-shadow: #2CC3C3 20px 20px 20px 20px;
+  border-radius: .5em;
+  border: none;
+  background-color: #87d2e9;
+}

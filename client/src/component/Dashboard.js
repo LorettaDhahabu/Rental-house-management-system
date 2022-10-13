@@ -11,7 +11,6 @@ import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
@@ -25,6 +24,8 @@ import HouseIcon from "@mui/icons-material/House";
 import BungalowIcon from "@mui/icons-material/Bungalow";
 import GroupIcon from "@mui/icons-material/Group";
 import PaymentsIcon from "@mui/icons-material/Payments";
+import { useNavigate } from 'react-router-dom'
+import { useState } from "react";
 
 const drawerWidth = 240;
 
@@ -93,7 +94,36 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function Dashboard() {
+export default function Dashboard ( { user, setUser} )
+{
+  const [error, setErrors] = useState([])
+  const navigate = useNavigate(); 
+  
+  function handleLogoutClick ()
+  {
+    fetch( "/logout",
+      {
+        method: "DELETE",
+        headers: {
+        "Content-Type": "application/json",
+      },
+      } )
+      .then( ( response ) =>
+      { 
+        if ( response.ok )
+        {
+        setUser(null);
+        navigate("/");
+      }
+      else
+      {
+        response.json().then((err) => setErrors(err.errors));
+      }
+      } );
+    //  alert("delete was successful");
+  }
+  
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -106,102 +136,112 @@ export default function Dashboard() {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: "none" }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            <em>Rental House Mgt</em>
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        {/* <Divider /> */}
-        <List>
-          {[
-            <a href="/dashboard">Dashbord</a>,
-            <a href="/apartments">Apartments</a>,
-            <a href="/tenants">Tenants</a>,
-            <a href="/payments">Payments</a>,
-          ].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: "block" }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
+    <>
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <AppBar position="fixed" open={open}>
+          <Toolbar className="toolbar">
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                marginRight: 5,
+                ...(open && { display: "none" }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <div className="menucomps">
+              <Typography variant="h6" noWrap component="div">
+                <em>Rental House Mgt</em>
+              </Typography>
+              <Typography variant="h6" noWrap component="div">
+                <button className="signoutBtn" onClick={ handleLogoutClick }>Sign Out</button>
+              </Typography>
+            </div>
+          </Toolbar>
+        </AppBar>
+        <Drawer variant="permanent" open={open}>
+          <DrawerHeader>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === "rtl" ? (
+                <ChevronRightIcon />
+              ) : (
+                <ChevronLeftIcon />
+              )}
+            </IconButton>
+          </DrawerHeader>
+          {/* <Divider /> */}
+          <List>
+            {[
+              <a href="/dashboard">Dashbord</a>,
+              <a href="/apartments">Apartments</a>,
+              <a href="/tenants">Tenants</a>,
+              <a href="/payments">Payments</a>,
+            ].map((text, index) => (
+              <ListItem key={text} disablePadding sx={{ display: "block" }}>
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
                   }}
                 >
-                  {(() => {
-                    if (index === 0) {
-                      return <DashboardCustomizeIcon />;
-                    } else {
-                      return <HouseIcon />;
-                    }
-                  })()}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        {/* <Divider /> */}
-      </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }} className="maindash">
-        <DrawerHeader />
-        <div className="typographs">
-          <Typography className="card container dashcards dashcard1">
-            <div>
-              <BungalowIcon className="houseicon" />
-              <h3 className="cardinfo">Apartments</h3>
-              <p>Total Number Of Apartments</p>
-            </div>
-          </Typography>
-          <Typography className="card container dashcards dashcard2">
-            <div>
-              <GroupIcon className="tenanticon" />
-              <h3 className="cardinfo">Tenants</h3>
-              <p>Total Number Of Tenants</p>
-            </div>
-          </Typography>
-          <Typography className="card container dashcards dashcard3">
-            <div>
-              <PaymentsIcon className="payicon" />
-              <h3 className="cardinfo">Payments</h3>
-              <p>A list of payments already made</p>
-            </div>
-          </Typography>
-        </div>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {(() => {
+                      if (index === 0) {
+                        return <DashboardCustomizeIcon />;
+                      } else {
+                        return <HouseIcon />;
+                      }
+                    })()}
+                  </ListItemIcon>
+                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+          {/* <Divider /> */}
+        </Drawer>
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }} className="maindash">
+          <DrawerHeader />
+          <div className="typographs">
+            <Typography className="card container dashcards dashcard1">
+              <div>
+                <BungalowIcon className="houseicon" />
+                <h3 className="cardinfo">Apartments</h3>
+                <p>Total Number Of Apartments</p>
+              </div>
+            </Typography>
+            <Typography className="card container dashcards dashcard2">
+              <div>
+                <GroupIcon className="tenanticon" />
+                <h3 className="cardinfo">Tenants</h3>
+                <p>Total Number Of Tenants</p>
+              </div>
+            </Typography>
+            <Typography className="card container dashcards dashcard3">
+              <div>
+                <PaymentsIcon className="payicon" />
+                <h3 className="cardinfo">Payments</h3>
+                <p>A list of payments already made</p>
+              </div>
+            </Typography>
+          </div>
+        </Box>
       </Box>
-    </Box>
+      {/* <Button variant="outline" onClick={handleLogoutClick}>
+        Logout
+      </Button> */}
+    </>
   );
 }
 
