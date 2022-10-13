@@ -114,6 +114,30 @@ Room.create([
     room_no: "114",
 
   },
+  {
+    apartment_id: Apartment.all.sample.id,
+    room_no: "115",
+
+  },
+  {
+    apartment_id: Apartment.all.sample.id,
+    room_no: "210",
+  },
+  {
+    apartment_id: Apartment.all.sample.id,
+    room_no: "211",
+
+  },
+  {
+    apartment_id: Apartment.all.sample.id,
+    room_no: "212",
+
+  },
+  {
+    apartment_id: Apartment.all.sample.id,
+    room_no: "213",
+
+  },
 
 ])
 

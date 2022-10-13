@@ -10,9 +10,6 @@
 span > .navbar-toggler-icon{
   color: white !important;
 }
-.bg-dark{
-  background-color: #0D1317 !important;
-} 
 
 .bg-success{
   height: 130vh !important;
@@ -122,19 +119,19 @@ span > .navbar-toggler-icon{
 
 .restimages{
   border-radius: 2em!important;
-  margin-top: 1em;
+  margin-top: 2em;
   align-items: center;
   /* margin-bottom: 1em; */
   text-align: center;
-  width: 80%;
-  height: 65vh;
+  width: 70%;
+  height: 75vh;
   object-fit: cover;
   box-shadow: 10px 10px 5px 2px #127782 !important;
 }
 .restcards{
   display: flex;
   border-radius: 1em !important;
-  margin-top: 1em;
+  /* margin-top: 1em; */
   align-items: center;
   margin-right: 4em;
   margin-bottom: 1.5em;
