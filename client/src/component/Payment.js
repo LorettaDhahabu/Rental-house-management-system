@@ -15,6 +15,11 @@ function Payment ()
     function handleChange(e) {
       setPayment({ ...setPayment, [e.target.id]: e.target.value });
     }
+  
+  function handleSubmitInvoice ()
+  {
+    window.print();
+  }
 
     const { id } = useParams();
 
@@ -63,6 +68,7 @@ function Payment ()
         className="btn btn-primary my-4"
         data-toggle="modal"
         data-target="#exampleModal"
+        onClick={handleSubmitInvoice}
       >
         Print
       </button>
@@ -70,4 +76,4 @@ function Payment ()
   );
 }
 
-export default Payment
+export default Payment;
