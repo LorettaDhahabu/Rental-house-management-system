@@ -84,7 +84,7 @@ function Tenants({ onAddingTenant }) {
   }
 
   return (
-    <>
+    <div>
       {/* <button className='my-4'>+ Tenant</button> */}
       <button
         type="button"
@@ -95,98 +95,98 @@ function Tenants({ onAddingTenant }) {
         + Tenant
       </button>
       <div
-        class="modal fade"
+        className="modal fade"
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
                 Add Tenant
               </h5>
               <button
                 type="button"
-                class="close"
+                className="close"
                 data-dismiss="modal"
                 aria-label="Close"
               >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <div className="addtenant-pg">
                 <form className="adding-form" onSubmit={handleSubmit}>
-                  <div class="form-group">
+                  <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Full Name</label>
                     <input
                       type="text"
                       id="name"
                       autoComplete="off"
-                      class="form-control"
+                      className="form-control"
                       placeholder="enter tenant name..."
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Age</label>
                     <input
                       type="number{ >= 18}"
                       id="age"
                       autoComplete="off"
-                      class="form-control"
+                      className="form-control"
                       placeholder="enter tenant age..."
                       value={age}
                       onChange={(e) => setAge(e.target.value)}
                     />
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Gender</label>
                     <input
                       type="ext"
                       id="gender"
                       autoComplete="off"
-                      class="form-control"
+                      className="form-control"
                       placeholder="enter tenant gender..."
                       value={gender}
                       onChange={(e) => setGender(e.target.value)}
                     />
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Contact</label>
                     <input
                       type="tel"
                       id="contact"
                       autoComplete="off"
-                      class="form-control"
+                      className="form-control"
                       placeholder="enter tenant contact..."
                       value={contact}
                       onChange={(e) => setContact(e.target.value)}
                     />
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Room</label>
                     <input
                       type="text"
                       id="room-no"
                       autoComplete="off"
-                      class="form-control"
+                      className="form-control"
                       placeholder="enter tenant room..."
                       value={room_id}
                       onChange={(e) => setRoomNumber(e.target.value)}
                     />
                   </div>
 
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-primary">
+                  <div className="form-group">
+                    <button type="submit" className="btn btn-primary">
                       {isLoading ? "Loading..." : "Add"}{" "}
-                      <i class="fa fa-sign-in" aria-hidden="true"></i>
+                      <i className="fa fa-sign-in" aria-hidden="true"></i>
                     </button>
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     {errors.map((err) => (
                       <div key={err}>{err}</div>
                     ))}
@@ -194,15 +194,15 @@ function Tenants({ onAddingTenant }) {
                 </form>
               </div>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-dismiss="modal"
               >
                 Close
               </button>
-              <button type="button" class="btn btn-primary">
+              <button type="button" className="btn btn-primary">
                 Save changes
               </button>
             </div>
@@ -225,7 +225,7 @@ function Tenants({ onAddingTenant }) {
           <TableBody>
             {tenants.map((row) => (
               <TableRow
-                key={row.title}
+                key={row.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
@@ -243,21 +243,21 @@ function Tenants({ onAddingTenant }) {
                     <button className="viewBtn">View More</button>
                   </Link>
                 </TableCell>
-                <button
-                  onClick={() => {
-                    deleteTenant(row.id);
-                  }}
-                  type="button"
-                  className="btn-danger my-3"
-                >
-                  Vacate
-                </button>
+                  <button
+                    onClick={() => {
+                      deleteTenant(row.id);
+                    }}
+                    type="button"
+                    className="btn-danger my-3"
+                  >
+                    Vacate
+                  </button>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-    </>
+    </div>
   );
 }
 

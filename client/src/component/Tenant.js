@@ -24,11 +24,13 @@ function Tenant() {
         response.json()
           .then( ( tenant ) =>
           {
-          console.log(tenant);
+          // console.log(tenant);
           setTenant({ data: tenant, error: "", status: "resolved" });
         });
-        //   console.log(tenant);
-      } else {
+          // console.log(tenant);
+      }
+      else
+      {
         response.json().then((err) =>
           setTenant({
             data: "not found",
@@ -54,12 +56,11 @@ function Tenant() {
       body: JSON.stringify(tenant),
     })
       .then((resp) => resp.json())
-      .then((tenant) => {
-        console.log(tenant);
-        setTenant(tenant);
+      .then((data) => {
+        // console.log(data);
+        setTenant(data);
       });
   }
-
   return (
     <div className="restbody">
       <div className="container bg-darksalmon">
@@ -101,89 +102,89 @@ function Tenant() {
         Edit
       </button>
       <div
-        class="modal fade"
+        className="modal fade"
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
                 Edit Tenant Details
               </h5>
               <button
                 type="button"
-                class="close"
+                className="close"
                 data-dismiss="modal"
                 aria-label="Close"
               >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <div className="addtenant-pg">
-                <form className="adding-form" onSubmit={(e)=>handleSubmit(e)}>
-                  <div class="form-group">
+                <form
+                  className="adding-form"
+                  onSubmit={(e) => handleSubmit(e)}
+                >
+                  <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Full Name</label>
                     <input
                       type="text"
                       id="name"
                       autoComplete="off"
-                      class="form-control"
+                      className="form-control"
                       placeholder="enter tenant name..."
-                      value={name}
-                      onChange={(e) => {
-                        (e) => handleChange(e);
-                      }}
+                      value={tenant.name}
+                      onChange={(e) => handleChange(e)}
                     />
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Age</label>
                     <input
                       type="number{ >= 18}"
                       id="age"
                       autoComplete="off"
-                      class="form-control"
+                      className="form-control"
                       placeholder="enter tenant age..."
-                      value={ age }
-                      onChange={ ( e ) => { e => handleChange( e ) } }
+                      value={tenant.age}
+                      onChange={(e) => setTenant(e.target.value)}
                     />
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Gender</label>
                     <input
                       type="ext"
                       id="gender"
                       autoComplete="off"
-                      class="form-control"
+                      className="form-control"
                       placeholder="enter tenant gender..."
-                      value={ gender }
-                      onChange={ ( e ) => { e => handleChange( e ) } }
+                      value={tenant.gender}
+                      onChange={(e) => setTenant(e.target.value)}
                     />
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Contact</label>
                     <input
                       type="tel"
                       id="contact"
                       autoComplete="off"
-                      class="form-control"
+                      className="form-control"
                       placeholder="enter tenant contact..."
-                      value={ contact }
-                      onChange={ ( e ) => { e => handleChange( e ) } }
+                      value={tenant.contact}
+                      onChange={(e) => setTenant(e.target.value)}
                     />
                   </div>
-                 
 
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-primary">
+                  <div className="form-group">
+                    <button type="submit" className="btn btn-primary">
                       {isLoading ? "Loading..." : "Add"}{" "}
-                      <i class="fa fa-sign-in" aria-hidden="true"></i>
+                      <i className="fa fa-sign-in" aria-hidden="true"></i>
                     </button>
                   </div>
-                  <div class="form-group">
+                  <div className="form-group">
                     {errors.map((err) => (
                       <div key={err}>{err}</div>
                     ))}
@@ -191,15 +192,15 @@ function Tenant() {
                 </form>
               </div>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-dismiss="modal"
               >
                 Close
               </button>
-              <button type="button" class="btn btn-primary">
+              <button type="button" className="btn btn-primary">
                 Save changes
               </button>
             </div>
@@ -209,5 +210,6 @@ function Tenant() {
     </div>
   );
 }
+
 
 export default Tenant
