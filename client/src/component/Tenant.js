@@ -9,9 +9,20 @@ function Tenant() {
   } );
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [ edittenant, setEditTenant ] = useState( {
+    name: "",
+    age: "",
+    gender: "",
+    contact:""
+  } );
   
+  function FillEditInput (tenant)
+  {
+    setEditTenant({name:tenant.name, age:tenant.age, gender:tenant.gender, contact:tenant.contact})
+    // console.log(tenant);
+  }
   function handleChange(e) {
-    setTenant({ ...setTenant, [e.target.id]: e.target.value });
+    setEditTenant({ ...edittenant, [e.target.id]: e.target.value });
   }
 
   const { id } = useParams();
@@ -46,27 +57,30 @@ function Tenant() {
   if (status === "rejected") return <h1>Error: {error.error}</h1>;
 
 
-  function handleSubmit(e) {
+  function handleSubmit ( e )
+  {
     e.preventDefault();
+
+    console.log(edittenant);
     fetch(`/tenants/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(tenant),
+      body: JSON.stringify(edittenant),
     })
       .then((resp) => resp.json())
       .then((data) => {
         // console.log(data);
         setTenant(data);
-      } );
+      });
     
-    fetch( `/tenants/${id}` )
-      .then( ( response ) => response.json() )
-      .then( ( data ) =>
-      {
-      setTenant(data)
-    })
+    // fetch( `/tenants/${id}` )
+    //   .then( ( response ) => response.json() )
+    //   .then( ( data ) =>
+    //   {
+    //   setTenant(data)
+    // })
   }
   return (
     <div className="restbody">
@@ -105,6 +119,7 @@ function Tenant() {
         className="btn btn-primary my-4"
         data-toggle="modal"
         data-target="#exampleModal"
+        onClick={() => FillEditInput(tenant)}
       >
         Edit
       </button>
@@ -132,10 +147,7 @@ function Tenant() {
             </div>
             <div className="modal-body">
               <div className="addtenant-pg">
-                <form
-                  className="adding-form"
-                  onSubmit={(e) => handleSubmit(e)}
-                >
+                <form className="adding-form">
                   <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Full Name</label>
                     <input
@@ -144,8 +156,8 @@ function Tenant() {
                       autoComplete="off"
                       className="form-control"
                       placeholder="enter tenant name..."
-                      value={tenant?.name}
-                      onChange={(e) => handleChange(e)}
+                      value={edittenant.name}
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="form-group">
@@ -156,8 +168,8 @@ function Tenant() {
                       autoComplete="off"
                       className="form-control"
                       placeholder="enter tenant age..."
-                      value={tenant?.age}
-                      onChange={(e) => setTenant(e.target.value)}
+                      value={edittenant.age}
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="form-group">
@@ -168,8 +180,8 @@ function Tenant() {
                       autoComplete="off"
                       className="form-control"
                       placeholder="enter tenant gender..."
-                      value={tenant?.gender}
-                      onChange={(e) => setTenant(e.target.value)}
+                      value={edittenant.gender}
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="form-group">
@@ -180,13 +192,17 @@ function Tenant() {
                       autoComplete="off"
                       className="form-control"
                       placeholder="enter tenant contact..."
-                      value={tenant?.contact}
-                      onChange={(e) => setTenant(e.target.value)}
+                      value={edittenant.contact}
+                      onChange={handleChange}
                     />
                   </div>
 
                   <div className="form-group">
-                    <button type="submit" className="btn btn-primary" onClick={handleSubmit}>
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
+                      onClick={handleSubmit}
+                    >
                       {isLoading ? "Loading..." : "Change"}{" "}
                       <i className="fa fa-sign-in" aria-hidden="true"></i>
                     </button>
