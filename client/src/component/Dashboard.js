@@ -139,21 +139,6 @@ export default function Dashboard() {
         </DrawerHeader>
         {/* <Divider /> */}
         <List>
-          {/* <ul>
-            <li>
-              <a href="/dashboard">Dashbord</a>
-            </li>
-            <li>
-              <a href="/apartments">Apartments</a>
-            </li>
-            <li>
-              <a href="/tenants">Tenants</a>
-            </li>
-            <li>
-              <a href="/payments">Payments</a>
-            </li>
-          </ul> */}
-
           {[
             <a href="/dashboard">Dashbord</a>,
             <a href="/apartments">Apartments</a>,
@@ -196,19 +181,22 @@ export default function Dashboard() {
           <Typography className="card container dashcards dashcard1">
             <div>
               <BungalowIcon className="houseicon" />
-              <h3>Apartments</h3>
+              <h3 className="cardinfo">Apartments</h3>
+              <p>Total Number Of Apartments</p>
             </div>
           </Typography>
           <Typography className="card container dashcards dashcard2">
             <div>
               <GroupIcon className="tenanticon" />
-              <h3>Tenants</h3>
+              <h3 className="cardinfo">Tenants</h3>
+              <p>Total Number Of Tenants</p>
             </div>
           </Typography>
           <Typography className="card container dashcards dashcard3">
             <div>
               <PaymentsIcon className="payicon" />
-              <h3>Payments</h3>
+              <h3 className="cardinfo">Payments</h3>
+              <p>A list of payments already made</p>
             </div>
           </Typography>
         </div>
