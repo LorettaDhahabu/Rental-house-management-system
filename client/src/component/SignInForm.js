@@ -1,6 +1,6 @@
 import React, { useState} from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "./Header";
+// import Header from "./Header";
 
 function SignInForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -34,7 +34,7 @@ function SignInForm({ onLogin }) {
   }
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className="signin-pg">
         <form className="login-form" onSubmit={handleSubmit}>
           <div class="form-group">
