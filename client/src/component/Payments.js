@@ -23,13 +23,15 @@ function Payments ()
             .then( ( response ) => response.json() )
             .then( ( data ) => setPayments( data ) );
     }, [] );
-    async function getPayments ()
-    {
-        let result = await fetch( "/payments" );
-        result = await result.json();
-        setPayments( result );
-    }
+    // async function getPayments ()
+    // {
+    //     let result = await fetch( "/payments" );
+    //     result = await result.json();
+    //     setPayments( result );
+    // }
     return (
+        <>
+        <Header/>
         <TableContainer component={ Paper }>
             <Table aria-label="simple table">
                 <TableHead>
@@ -77,7 +79,8 @@ function Payments ()
                     ) ) }
                 </TableBody>
             </Table>
-        </TableContainer>
+            </TableContainer>
+            </>
     );
 }
 

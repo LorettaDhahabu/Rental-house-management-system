@@ -24,7 +24,6 @@ function Footer() {
 
             <p className="text-white">Payments</p>
 
-            <p className="text-white">Reports</p>
           </div>
 
           <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">

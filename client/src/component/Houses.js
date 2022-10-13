@@ -64,7 +64,7 @@ function Houses ()
   });
   return(
   <>
-    <Header />
+    <Header/>
     {houseList}
     </>
   )

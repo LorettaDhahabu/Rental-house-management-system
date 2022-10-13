@@ -1,6 +1,18 @@
 .App {
   text-align: center;
 }
+.navbar{
+  background-color: #0D1317 !important;
+}
+.navbar-brand{
+  font-style: italic !important;
+}
+span > .navbar-toggler-icon{
+  color: white !important;
+}
+.bg-dark{
+  background-color: #0D1317 !important;
+} 
 
 .bg-success{
   height: 130vh !important;

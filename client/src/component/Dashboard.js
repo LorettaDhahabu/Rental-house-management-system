@@ -110,9 +110,10 @@ export default function Dashboard ( { user, setUser} )
       } )
       .then( ( response ) =>
       { 
+        setUser(null);
         if ( response.ok )
         {
-        setUser(null);
+        
         navigate("/");
       }
       else

@@ -9,6 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Tenant from "./Tenant";
+import Header from "./Header";
 
 function Tenants({ onAddingTenant }) {
   const [tenants, setTenants] = useState([]);
@@ -85,7 +86,7 @@ function Tenants({ onAddingTenant }) {
 
   return (
     <div>
-      {/* <button className='my-4'>+ Tenant</button> */}
+      <Header/>
       <button
         type="button"
         className="btn btn-primary my-4"
