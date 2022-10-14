@@ -11,23 +11,21 @@ function House ()
     const { id } = useParams();
 
     useEffect(() => {
-      fetch(`/apartments/${id}`).then((response) => {
+      fetch(`/api/apartments/${id}`).then((response) => {
         if (response.ok) {
           response.json().then((house) => {
             // console.log(house);
             setHouse({ data: house, error: "", status: "resolved" });
           });
-        //   console.log(house);
+          //   console.log(house);
         } else {
-          response
-            .json()
-            .then((err) =>
-              setHouse({
-                data: "not found",
-                error: err.error,
-                status: "rejected",
-              })
-            );
+          response.json().then((err) =>
+            setHouse({
+              data: "not found",
+              error: err.error,
+              status: "rejected",
+            })
+          );
         }
       });
     }, [ id ] );

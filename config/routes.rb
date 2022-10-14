@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+namespace :api do
   resources :payments,  only: [:index, :show, :create, :update, :destroy]
 
   resources :rooms, only: [:index, :show, :create, :update, :destroy]
@@ -21,12 +21,8 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
 
   # resources :houses, only: [:index, :show, :create, :update, :destroy]
-
-  
-
- 
-
-  
+end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

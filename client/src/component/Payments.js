@@ -19,9 +19,9 @@ function Payments ()
 
     useEffect( () =>
     {
-        fetch( "/payments" )
-            .then( ( response ) => response.json() )
-            .then( ( data ) => setPayments( data ) );
+        fetch("/api/payments")
+          .then((response) => response.json())
+          .then((data) => setPayments(data));
     }, [] );
     // async function getPayments ()
     // {

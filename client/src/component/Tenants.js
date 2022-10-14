@@ -28,13 +28,13 @@ function Tenants({ onAddingTenant }) {
   }, []);
 
   async function getTenants() {
-    let result = await fetch("/tenants");
+    let result = await fetch("/api/tenants");
     result = await result.json();
     setTenants(result);
   }
 
   function deleteTenant(id) {
-    fetch(`/tenants/${id}`, {
+    fetch(`/api/tenants/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -54,7 +54,7 @@ function Tenants({ onAddingTenant }) {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-    fetch("/tenants", {
+    fetch("/api/tenants", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,8 +75,8 @@ function Tenants({ onAddingTenant }) {
 
           navigate(`/tenants/${id}`);
           setErrors([]);
-        } );
-        
+        });
+
         // navigate("/dashboard");
       } else {
         response.json().then((err) => setErrors(err.errors));

@@ -13,7 +13,7 @@ function SignInForm({ onLogin }) {
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    fetch("/login", {
+    fetch("/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,12 +22,10 @@ function SignInForm({ onLogin }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then( ( user ) => onLogin( user ) );
-        
+        r.json().then((user) => onLogin(user));
+
         navigate("/dashboard");
-      }
-      else
-      {
+      } else {
         r.json().then((err) => setErrors(err.errors));
       }
     });

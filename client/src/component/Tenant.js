@@ -29,20 +29,14 @@ function Tenant() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch( `/tenants/${id}` )
-      .then( ( response ) =>
-      {
+    fetch(`/api/tenants/${id}`).then((response) => {
       if (response.ok) {
-        response.json()
-          .then( ( tenant ) =>
-          {
+        response.json().then((tenant) => {
           // console.log(tenant);
           setTenant({ data: tenant, error: "", status: "resolved" });
         });
-          // console.log(tenant);
-      }
-      else
-      {
+        // console.log(tenant);
+      } else {
         response.json().then((err) =>
           setTenant({
             data: "not found",
@@ -63,7 +57,7 @@ function Tenant() {
     e.preventDefault();
 
     console.log(edittenant);
-    fetch(`/tenants/${id}`, {
+    fetch(`/api/tenants/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

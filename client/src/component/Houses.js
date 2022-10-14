@@ -13,7 +13,7 @@ function Houses ()
   }, []);
 
   async function getHouses() {
-    let result = await fetch("/apartments");
+    let result = await fetch("/api/apartments");
     result = await result.json();
     setHouses(result);
   }

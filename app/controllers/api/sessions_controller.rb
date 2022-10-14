@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class Api::SessionsController < ApplicationController
     before_action :authenticate
     skip_before_action :authenticate, only: [:create, :destroy]
 

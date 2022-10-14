@@ -102,20 +102,14 @@ export default function Dashboard ( )
   
   function handleLogoutClick ()
   {
-    fetch( "/logout",
-      { method: "DELETE" } )
-      .then( ( response ) =>
-      {  
-        if ( response.ok )
-        { 
-          setUser(null);
+    fetch("/api/logout", { method: "DELETE" }).then((response) => {
+      if (response.ok) {
+        setUser(null);
         navigate("/");
-      }
-      else
-      {
+      } else {
         response.json().then((err) => setErrors(err.errors));
       }
-      } );
+    });
     //  alert("delete was successful");
   }
   

@@ -41,7 +41,7 @@ function Payment ()
     const { id } = useParams();
 
     useEffect(() => {
-      fetch(`/payments/${id}`).then((response) => {
+      fetch(`/api/payments/${id}`).then((response) => {
         if (response.ok) {
           response.json().then((payment) => {
             // console.log(payment);
@@ -68,19 +68,18 @@ function Payment ()
     e.preventDefault();
 
     console.log( editpayment );
-    fetch( `/payments/${id}`, {
+    fetch(`/api/payments/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify( editpayment ),
-    } )
-      .then( ( response ) => response.json() )
-      .then( ( data ) =>
-      {
+      body: JSON.stringify(editpayment),
+    })
+      .then((response) => response.json())
+      .then((data) => {
         // console.log(data);
-        setPayment( data );
-      } );
+        setPayment(data);
+      });
   }
   return (
     <>

@@ -1,12 +1,13 @@
 {
-  "dependencies": {
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "@fontsource/roboto": "^4.5.8",
-    "@mui/icons-material": "^5.10.6",
-    "@mui/material": "^5.10.8",
-    "@mui/styled-engine-sc": "^5.10.6",
-    "react-router-dom": "^6.4.2",
-    "styled-components": "^5.3.6"
+  "name": "Rental-House-Mgt",
+  "description": "Build scripts for Heroku",
+  "engines": {
+    "node": "16.16.0"
+  },
+  "scripts": {
+    "clean": "rm -rf public",
+    "build": "npm install --prefix client && npm run build --prefix client",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   }
 }
