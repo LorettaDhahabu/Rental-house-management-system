@@ -39,7 +39,9 @@ function SignUpForm({ onLogin }) {
 
   return (
     <div className=" signup-pg">
-      <form className=" container signup-form " onSubmit={handleSubmit}>
+      <form className=" container signup-form " onSubmit={ handleSubmit }>
+        <h3>Sign Up</h3>
+        <p>Please fill this form to Create an Account</p>
         <div class="form-group">
           <label for="name">
             Full Name</label>
