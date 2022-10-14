@@ -1,19 +1,20 @@
 # Rental-House-Mgt
 
 ## Table Of Content
-* Description
+- [Description] (Description)
 
-* Ruby version
+- [Ruby-version] (Ruby version)
+- [System-dependencies-setup] (System dependencies setup)
 
-* System dependencies setup
+- [Infrastructure/Design] (Infrastructure/Design)
 
-* Database creation
+- [Database-creation] (Database creation)
 
-* Deployment instructions
+- [Deployment-instructions] (Deployment instructions)
 
-* Features
+- [Features] (Features)
 
-* License
+- [License] (License)
 
 # Description
 This is an app called Rental-House-Mgt. Rental-House-Mgt was developed to specifically be used by landlords, especially those that do not have caretakers to look over their apartments, to be able to track the details of their apartments, the rooms occupied, see tenant details and able to print rent invoices for their tenants.
@@ -37,6 +38,9 @@ You can run the Rails API on localhost:3000 by running:
 You can run the React app on localhost:4000 by running:
 
 * npm start --prefix client
+
+##  Infrastructure/Design
+![Design] (https://www.figma.com/file/eYHju9ekPD2Htfm7B8MwwC/Rental-House-Management-System-For-Landlords?node-id=0%3A1)
 
 ## Database Creation
 ### Models
@@ -78,6 +82,8 @@ Make sure to return JSON data in the format specified along with the appropriate
 
 * PATCH /tenants => edits tenants data and update the edited data.
 
+## Entity Relationship Diagram
+![Link] (https://drawsql.app/teams/loretta/diagrams/rental-system-management)
   
 ## Deployment Instructions
 To deploy a rails API with a react frontend within it, I followed the following procedure:
