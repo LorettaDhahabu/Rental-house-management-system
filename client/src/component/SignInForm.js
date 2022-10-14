@@ -36,9 +36,9 @@ function SignInForm({ onLogin }) {
       <div className="signin-pg">
         <form className="login-form" onSubmit={handleSubmit}>
           <h3>Rental House Management </h3>
-          <h4>
+          {/* <h4>
             <em>WELCOME!</em>
-          </h4>
+          </h4> */}
           <p>Please Enter Your Username and Password</p>
           <div class="form-group">
             <label for="exampleInputEmail1">Username</label>
