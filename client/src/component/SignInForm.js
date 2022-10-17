@@ -40,37 +40,37 @@ function SignInForm({ onLogin }) {
             <em>WELCOME!</em>
           </h4> */}
           <p>Please Enter Your Username and Password</p>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Username</label>
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Username</label>
             <input
               type="text"
               id="username"
               autoComplete="off"
-              class="form-control"
+              className="form-control"
               placeholder="enter your username..."
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Password</label>
             <input
               type="password"
               id="password"
               autoComplete="current-password"
-              class="form-control"
+              className="form-control"
               placeholder="enter your password...."
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary">
+          <div className="form-group">
+            <button type="submit" className="btn btn-primary">
               {isLoading ? "Loading..." : "Login"}{" "}
-              <i class="fa fa-sign-in" aria-hidden="true"></i>
+              <i className="fa fa-sign-in" aria-hidden="true"></i>
             </button>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             {errors.map((err) => (
               <div key={err}>{err}</div>
             ))}

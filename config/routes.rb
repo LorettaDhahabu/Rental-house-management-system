@@ -12,7 +12,7 @@ namespace :api do
 
   resources :tenants, only: [:index, :show, :create, :update, :destroy]
 
-  # post "/signup", to: "users#create"
+  post "/signup", to: "users#create"
 
   # get "/me", to: "users#show"
 

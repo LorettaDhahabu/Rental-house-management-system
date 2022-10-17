@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function SignUpForm({ onLogin }) {
+function SignUpForm() {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -8,7 +8,8 @@ function SignUpForm({ onLogin }) {
   const [email, setEmail] = useState("");
   const [phone_number, setPhoneNumber] = useState("");
   const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [ isLoading, setIsLoading ] = useState( false );
+  const [onLogin, setOnLogin] = useState("")
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -31,8 +32,11 @@ function SignUpForm({ onLogin }) {
       setIsLoading(false);
       if (response.ok) {
         response.json().then((user) => onLogin(user));
-      } else {
-        response.json().then((err) => setErrors(err.errors));
+      }
+      else
+      {
+        response.json()
+          .then( ( err ) => setErrors( err.errors ) );
       }
     });
   }
@@ -42,61 +46,61 @@ function SignUpForm({ onLogin }) {
       <form className=" container signup-form " onSubmit={ handleSubmit }>
         <h3>Sign Up</h3>
         <p>Please fill this form to Create an Account</p>
-        <div class="form-group">
-          <label for="name">
+        <div className="form-group">
+          <label htmlFor="name">
             Full Name</label>
             <input
               type="text"
               id="name"
               autoComplete="on"
-              class="form-control"
+              className="form-control"
               placeholder="enter your fullname..."
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
         </div>
-        <div class="form-group">
-          <label for="username">Username</label>
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
           <input
             type="text"
             id="username"
             autoComplete="off"
-            class="form-control"
+            className="form-control"
             placeholder="enter your username..."
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
+        <div className="form-group">
+          <label htmlFor="exampleInputPassword1">Password</label>
           <input
             type="password"
             id="password"
             autoComplete="current-password"
-            class="form-control"
+            className="form-control"
             placeholder="enter your password...."
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Confirm Password</label>
+        <div className="form-group">
+          <label htmlFor="exampleInputPassword1">Confirm Password</label>
           <input
             type="password"
             id="password_confirmation"
             autoComplete="current-password"
-            class="form-control"
+            className="form-control"
             placeholder="enter your password...."
             value={passwordConfirmation}
             onChange={(e) => setPasswordConfirmation(e.target.value)}
           />
         </div>
-        <div class="form-group">
-          <label for="email">Email address</label>
+        <div className="form-group">
+          <label htmlFor="email">Email address</label>
           <input
             type="email"
             autoComplete="current-email"
-            class="form-control"
+            className="form-control"
             id="exampleInputEmail1"
             placeholder="enter your email..."
             aria-describedby="emailHelp"
@@ -104,12 +108,12 @@ function SignUpForm({ onLogin }) {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div class="form-group">
-          <label for="phone-number">Phone Number</label>
+        <div className="form-group">
+          <label htmlFor="phone-number">Phone Number</label>
           <input
             type="tel"
             autoComplete="on"
-            class="form-control"
+            className="form-control"
             id="exampleInputTel"
             placeholder="enter your phone number..."
             aria-describedby="telHelp"
@@ -117,14 +121,14 @@ function SignUpForm({ onLogin }) {
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
         </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">
+        <div className="form-group">
+          <button type="submit" className="btn btn-primary">
             {isLoading ? "Loading..." : "Signup"}{" "}
-            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <i className="fa fa-sign-out" aria-hidden="true"></i>
           </button>
         </div>
-        <div class="form-group">
-          {errors.map((err) => (
+        <div className="form-group">
+          {errors?.map((err) => (
             <div key={err}>{err}</div>
           ))}
         </div>
